@@ -1,1 +1,1 @@
-export const BaseURL = "/FebreNaIdadePediatrica/";
+export const BaseURL = '/AFebreNaIdadePediatrica/';

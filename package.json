@@ -1,12 +1,12 @@
 {
-  "homepage": "https://RVelhinho.github.io/FebreNaIdadePediatrica/",
+  "homepage": "https://RVelhinho.github.io/AFebreNaIdadePediatrica/",
   "name": "vite-project",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp build/index.html build/404.html",
+    "build": "vite build && cp dist/index.html dist/404.html",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
-    "gh-pages": "^6.1.1",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -30,6 +29,7 @@
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "gh-pages": "^6.2.0",
     "sass": "^1.75.0",
     "vite": "^5.2.0"
   }
