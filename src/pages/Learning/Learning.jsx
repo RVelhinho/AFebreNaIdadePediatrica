@@ -330,6 +330,7 @@ const LearningCardsPage = ({ cards, setPage }) => {
                     <span
                       className="small-text"
                       style={{
+                        display: 'block',
                         color: '#d6d6d6',
                         paddingTop: '4rem',
                       }}
