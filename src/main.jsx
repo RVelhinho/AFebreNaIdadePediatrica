@@ -1,15 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
 import './index.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Introduction } from './pages/Introduction/Introduction.jsx';
 import { App } from './App.jsx';
-import { Communication } from './pages/Communication/Communication.jsx';
+import { Learning } from './pages/Learning/Learning.jsx';
 import { BaseURL } from './config/url.js';
 
 const router = createBrowserRouter(
@@ -22,8 +18,8 @@ const router = createBrowserRouter(
                     element: <Introduction />
                 },
                 {
-                    path: `communication`,
-                    element: <Communication />
+                    path: `learning`,
+                    element: <Learning />
                 }
             ]
         }

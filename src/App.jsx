@@ -1,30 +1,27 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom';
+import febreBackground from './assets/febreBackground.png';
 
 export function App() {
   return (
     <div
       className="container-fluid position-relative"
       style={{
-        width: "100vw",
-        padding: "2rem",
+        width: '100vw',
+        height: '100vh',
+        overflow: 'hidden',
+        padding: '0',
+        position: 'fixed',
+        backgroundImage: `url(${febreBackground})`,
+        backgroundSize: 'stretch',
+        backgroundPosition: 'center',
       }}
     >
       <div
         style={{
-          position: "fixed",
-          background:
-            "linear-gradient(146deg, rgba(255,255,255,1) 0%, rgba(255,197,216,1) 65%, rgba(254,160,217,1) 100%)",
-          width: "100vw",
-          height: "100vh",
-          top: 0,
-          left: 0,
-          zIndex: 1,
-        }}
-      ></div>
-      <div
-        style={{
-          position: "relative",
-          zIndex: "10",
+          position: 'relative',
+          zIndex: '10',
+          width: '100%',
+          height: '100%',
         }}
       >
         <Outlet />

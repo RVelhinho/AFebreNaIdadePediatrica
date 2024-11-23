@@ -1,150 +1,109 @@
-import { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import logoVideo from '../../assets/logo.mp4';
+import { Title } from '../../components/title/title';
 
 export const Introduction = () => {
-    const navigate = useNavigate();
-    const [isLogin, setIsLogin] = useState(false);
-    const [name, setName] = useState('');
-    const [age, setAge] = useState('');
-    return (
+  const navigate = useNavigate();
+
+  return (
+    <div className="w-100 h-100 position-relative overflow-hidden">
+      <Circle
+        color="#c9e6e2"
+        top="-4rem"
+        right="60%"
+        size="calc(10rem + 10vw)"
+      />
+      <Circle
+        color="#fcb39a"
+        top="5rem"
+        right="-6rem"
+        size="calc(7.5rem + 7.5vw)"
+      />
+      <Circle
+        color="#f9e29e"
+        top="calc(12.5rem + 7.5vw)"
+        right="5%"
+        size="calc(2.5rem + 12.5vw)"
+      />
+      <Circle
+        color="#fcb39a"
+        bottom="5rem"
+        left="5rem"
+        size="calc(7.5rem + 2.5vw)"
+      />
+      <Circle
+        color="#f9e29e"
+        bottom="0rem"
+        left="0rem"
+        size="calc(7.5rem + 7.5vw)"
+        transform="translate(-50%, 50%)"
+      />
+      <div
+        style={{
+          position: 'absolute',
+          right: '0',
+          borderRadius: '100px 0 0 0',
+          bottom: '0',
+          transform: 'translate(0%, 50%)',
+          width: 'calc(8rem + 8vw)',
+          height: '4rem',
+          backgroundColor: '#c9e6e2',
+        }}
+      ></div>
+      <div
+        className="position-absolute"
+        style={{
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+        }}
+      >
+        <Title />
         <div
-            style={{
-                height: '100%',
-                width: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center'
-            }}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: 'calc(1rem + 1vw)',
+            fontFamily: 'DarumadropOne-Regular',
+            fontWeight: 'semibold',
+          }}
         >
-            <div className="row mx-0 w-100" style={{ marginBottom: '2rem' }}>
-                <div className="col px-0 h-100 d-flex justify-content-center align-items-center">
-                    <video
-                        autoPlay
-                        playsInline
-                        muted
-                        src={logoVideo}
-                        loop
-                        alt="logo"
-                        style={{
-                            maxWidth: '100%',
-                            maxHeight: '20rem',
-                            borderRadius: '0.6rem'
-                        }}
-                    />
-                </div>
-            </div>
-            {!isLogin && (
-                <>
-                    <div
-                        className="row mx-0 w-100"
-                        style={{ marginBottom: '1rem' }}
-                    >
-                        <div className="col px-0 d-flex justify-content-center align-items-center">
-                            <h1>Vamos comunicar?</h1>
-                        </div>
-                    </div>
-                    <div className="row mx-0 w-100">
-                        <div className="col px-0 d-flex justify-content-center align-items-center">
-                            <button
-                                style={{
-                                    padding: '0.5rem 2rem'
-                                }}
-                                onClick={() => setIsLogin(true)}
-                            >
-                                <span
-                                    style={{
-                                        fontSize: '1.5rem',
-                                        color: '#c03887'
-                                    }}
-                                >
-                                    Sim
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                </>
-            )}
-            {isLogin && (
-                <>
-                    <div
-                        className="row mx-0 w-100 d-flex justify-content-center align-items-center"
-                        style={{ marginBottom: '2rem' }}
-                    >
-                        <div className="col-auto px-0">
-                            <div className="row mx-0 w-100">
-                                <div className="col px-0">
-                                    <span className="input-label">Nome</span>
-                                </div>
-                            </div>
-                            <div className="row mx-0 w-100">
-                                <div className="col px-0">
-                                    <input
-                                        className="input-box"
-                                        type="text"
-                                        value={name}
-                                        onChange={(e) =>
-                                            setName(e.target.value)
-                                        }
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        className="row mx-0 w-100 d-flex justify-content-center align-items-center"
-                        style={{ marginBottom: '2rem' }}
-                    >
-                        <div className="col-auto px-0">
-                            <div className="row mx-0 w-100">
-                                <div className="col px-0">
-                                    <span className="input-label">Idade</span>
-                                </div>
-                            </div>
-                            <div className="row mx-0 w-100">
-                                <div className="col px-0">
-                                    <input
-                                        className="input-box"
-                                        type="number"
-                                        value={age}
-                                        onChange={(e) => setAge(e.target.value)}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row mx-0 w-100 d-flex justify-content-center align-items-center">
-                        <div className="col-auto px-0">
-                            <button
-                                style={{
-                                    padding: '0.5rem 2rem',
-                                    background:
-                                        name && age
-                                            ? '#c03887'
-                                            : 'rgba(192, 56, 135, 0.5)',
-                                    cursor:
-                                        name && age ? 'pointer' : 'not-allowed'
-                                }}
-                                disabled={!name || !age}
-                                onClick={() =>
-                                    navigate(`/communication`, {
-                                        state: { name, age }
-                                    })
-                                }
-                            >
-                                <span
-                                    style={{
-                                        fontSize: '1.5rem',
-                                        color: '#fff'
-                                    }}
-                                >
-                                    Confirmar
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                </>
-            )}
+          <span
+            style={{
+              color: '#4c4c4c',
+              textAlign: 'center',
+            }}
+          >
+            Pacote Informativo
+          </span>
+          <span className="pulsing-text" onClick={() => navigate('/learning')}>
+            Clique para começar
+          </span>
         </div>
-    );
+      </div>
+    </div>
+  );
+};
+
+const Circle = ({ color, top, left, right, bottom, size, transform }) => {
+  return (
+    <div
+      style={{
+        transform: transform || 'unset',
+        transformOrigin: 'center',
+        position: 'absolute',
+        top: top || 'unset',
+        left: left || 'unset',
+        right: right || 'unset',
+        bottom: bottom || 'unset',
+        width: size,
+        height: size,
+        opacity: '0.6',
+        borderRadius: '50%',
+        backgroundColor: color,
+      }}
+    ></div>
+  );
 };
