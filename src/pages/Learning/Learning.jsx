@@ -142,7 +142,7 @@ const BibliographyPage = ({ setPage }) => {
       />
       <div
         style={{
-          position: 'absolute',
+          position: 'fixed',
           right: '0',
           borderRadius: '100px 0 0 0',
           bottom: '0',
@@ -159,7 +159,7 @@ const BibliographyPage = ({ setPage }) => {
       ></div>
       <div
         style={{
-          position: 'absolute',
+          position: 'fixed',
           bottom: '2rem',
           left: '2rem',
         }}
@@ -172,7 +172,7 @@ const BibliographyPage = ({ setPage }) => {
         style={{
           width: 'calc(5rem + 10vw)',
           height: 'auto',
-          position: 'absolute',
+          position: 'fixed',
           bottom: '3rem',
           right: '1rem',
         }}
@@ -327,15 +327,24 @@ const LearningCardsPage = ({ cards, setPage }) => {
                 <div className="my-card__front">
                   <span className="title bold" style={{ textAlign: 'center' }}>
                     {card.question}
+                    <span
+                      className="small-text"
+                      style={{
+                        color: '#d6d6d6',
+                        paddingTop: '4rem',
+                      }}
+                    >
+                      Clique para descobrir a resposta
+                    </span>
                   </span>
                 </div>
                 <div className="my-card__back d-flex justify-content-start align-items-start">
                   <span
                     className={
                       card.answer.length > 500
-                        ? 'smallest-text'
+                        ? 'smallestest-text'
                         : card.answer.length > 300
-                        ? 'small-text'
+                        ? 'smallest-text'
                         : 'normal-text'
                     }
                   >
