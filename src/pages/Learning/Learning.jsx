@@ -341,13 +341,21 @@ const LearningCardsPage = ({ cards, setPage }) => {
                 </div>
                 <div className="my-card__back d-flex justify-content-start align-items-start">
                   <span
-                    className={
-                      card.answer.length > 500
-                        ? 'smallestest-text'
-                        : card.answer.length > 300
-                        ? 'smallest-text'
-                        : 'normal-text'
-                    }
+                    className="smallest-text"
+                    style={{
+                      fontSize:
+                        card.id === 1
+                          ? '1rem'
+                          : card.id === 2
+                          ? '0.9rem'
+                          : card.id === 3
+                          ? '0.6rem'
+                          : card.id === 4
+                          ? '0.8rem'
+                          : card.id === 5
+                          ? '0.9rem'
+                          : '1rem',
+                    }}
                   >
                     <ReactMarkdown>{card.answer}</ReactMarkdown>
                   </span>

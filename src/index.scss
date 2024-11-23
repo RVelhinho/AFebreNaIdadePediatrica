@@ -112,7 +112,8 @@ html {
     box-shadow: 0 2px 20px 0px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
     cursor: pointer;
-    width: calc(100vw - 10rem);
+    width: calc(100vw);
+    max-width: calc(100vw - 4rem);
     height: 20rem;
     display: flex;
     align-items: center;
