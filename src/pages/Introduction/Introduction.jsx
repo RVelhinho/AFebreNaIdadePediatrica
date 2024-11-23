@@ -1,12 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Title } from '../../components/title/title';
+import bea from '../../assets/bea.png';
 
 export const Introduction = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="w-100 h-100 position-relative overflow-hidden">
+    <div className="w-100 h-100 position-relative ">
       <Circle
         color="#c9e6e2"
         top="-4rem"
@@ -40,16 +41,27 @@ export const Introduction = () => {
       />
       <div
         style={{
-          position: 'absolute',
+          position: 'fixed',
           right: '0',
           borderRadius: '100px 0 0 0',
           bottom: '0',
           transform: 'translate(0%, 50%)',
           width: 'calc(8rem + 8vw)',
-          height: '4rem',
+          height: '2rem',
           backgroundColor: '#c9e6e2',
         }}
       ></div>
+      <img
+        src={bea}
+        alt="Bea"
+        style={{
+          width: 'calc(5rem + 10vw)',
+          height: 'auto',
+          position: 'absolute',
+          bottom: '3rem',
+          right: '1rem',
+        }}
+      />
       <div
         className="position-absolute"
         style={{
@@ -57,6 +69,7 @@ export const Introduction = () => {
           left: '50%',
           transform: 'translate(-50%, -50%)',
         }}
+        onClick={() => navigate('learning/introduction')}
       >
         <Title />
         <div
@@ -78,22 +91,28 @@ export const Introduction = () => {
           >
             Pacote Informativo
           </span>
-          <span className="pulsing-text" onClick={() => navigate('/learning')}>
-            Clique para começar
-          </span>
+          <span className="pulsing-text">Clique para começar</span>
         </div>
       </div>
     </div>
   );
 };
 
-const Circle = ({ color, top, left, right, bottom, size, transform }) => {
+export const Circle = ({
+  color,
+  top,
+  left,
+  right,
+  bottom,
+  size,
+  transform,
+}) => {
   return (
     <div
       style={{
         transform: transform || 'unset',
         transformOrigin: 'center',
-        position: 'absolute',
+        position: 'fixed',
         top: top || 'unset',
         left: left || 'unset',
         right: right || 'unset',

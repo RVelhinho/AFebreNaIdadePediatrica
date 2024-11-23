@@ -1,4 +1,11 @@
 @font-face {
+  font-family: 'Poppins-Regular'; /* The name you will use in CSS */
+  src: url('./fonts/Poppins-Regular.ttf') format('truetype'); /* The font source */
+  font-weight: normal; /* Specify the font weight */
+  font-style: normal; /* Specify the font style */
+}
+
+@font-face {
   font-family: 'DarumadropOne-Regular'; /* The name you will use in CSS */
   src: url('./fonts/DarumadropOne-Regular.ttf') format('truetype'); /* The font source */
   font-weight: normal; /* Specify the font weight */
@@ -48,6 +55,7 @@ button {
 
 html {
   font-size: 16px;
+  font-family: Poppins-Regular;
   .bold {
     font-weight: 600;
   }
@@ -69,14 +77,109 @@ html {
     line-height: 1.2;
     color: #4c4c4c;
   }
-  .pulsing-text {
-    margin-top: 4rem;
+  .smallest-text {
+    display: inline-block;
+    font-size: 0.6rem;
+    line-height: 1.2;
     color: #4c4c4c;
-    font-family: Arial;
-    cursor: pointer;
-    text-align: center;
-    animation: pulse 1.5s infinite; // Add animation
   }
+  .text {
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 1.2;
+    color: #4c4c4c;
+  }
+  .link {
+    cursor: pointer;
+    color: #4edcff;
+    text-decoration: underline;
+  }
+
+  .swiper-wrapper {
+    display: flex;
+  }
+  .my-card {
+    max-width: 30rem;
+    position: relative; /* Ensures child elements are positioned relative to the card */
+    border-radius: 2rem;
+    box-shadow: 0 2px 20px 0px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    cursor: pointer;
+    width: calc(100vw - 10rem);
+    height: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d; /* Required for 3D transformations */
+    transition: transform 0.6s ease-in-out; /* Smooth flip animation */
+
+    /* Flip the card */
+    &.flipped {
+      transform: rotateY(180deg);
+    }
+
+    &__front,
+    &__back {
+      border-radius: 2rem;
+      padding: 1rem;
+      position: absolute; /* Stack front and back perfectly */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backface-visibility: hidden; /* Prevent flipped side from showing */
+      transform-style: preserve-3d; /* Ensure children are properly transformed */
+    }
+
+    &__front {
+      background-color: #f8fbf7;
+    }
+
+    &__back {
+      background-color: #fdf8f5;
+      transform: rotateY(180deg); /* Rotate back to prepare for flipping */
+    }
+  }
+
+  .swiper-pagination-bullet {
+    border-radius: 0.6rem;
+    transition: all 0.3s ease-in-out;
+    width: 1rem;
+    height: 0.5rem;
+    cursor: pointer;
+    background-color: #fff;
+    opacity: 0.6;
+    &-active {
+      width: 2rem;
+      opacity: 1;
+      cursor: default;
+      background-color: #c03887;
+    }
+  }
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.pulsing-text {
+  display: inline-block; /* Important for transform to work properly */
+  margin-top: 4rem;
+  color: #4c4c4c;
+  font-family: Poppins-Regular;
+  cursor: pointer;
+  text-align: center;
+  animation: pulse 1.5s infinite; // Add animation
 }
 
 @keyframes pulse {
@@ -86,7 +189,7 @@ html {
   }
   50% {
     transform: scale(1.1);
-    opacity: 0.6;
+    opacity: 0.4;
   }
   100% {
     transform: scale(1);
