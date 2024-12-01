@@ -74,6 +74,7 @@ export const BibliographyPage = ({ setPage }) => {
         src={bea}
         alt="Bea"
         style={{
+          userSelect: 'none',
           width: 'calc(5rem + 10vw)',
           height: 'auto',
           position: 'fixed',
